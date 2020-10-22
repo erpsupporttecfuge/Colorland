@@ -17,6 +17,17 @@
         </field>
     </record>
 
+    <record id="view_order_tree_inherit_ref_change" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit.ref.change</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="client_order_ref" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
     <record id="view_order_line_tree_inherit_customer_ref" model="ir.ui.view">
         <field name="name">sale.order.line.list.inherit.custmer.refs</field>
         <field name="model">sale.order.line</field>

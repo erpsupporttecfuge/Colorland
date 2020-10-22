@@ -7,7 +7,7 @@ class SourceLocation(models.Model):
     _name = 'custom.source.location'
 
     name = fields.Char(
-        string='Name',
+        string='Source Name',
         required=True,
     )
     stock_location_id = fields.Many2one(

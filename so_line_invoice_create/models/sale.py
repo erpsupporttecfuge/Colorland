@@ -14,7 +14,7 @@ class SaleOrder(models.Model):
     )
     custom_source_id = fields.Many2one(
         'custom.source.location',
-        'Source',
+        'Source Name',
         readonly=True,
     )
     
