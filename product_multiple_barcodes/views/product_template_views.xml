@@ -203,7 +203,7 @@
               </p>
         </field>
     </record>
-    <record id="mis_product_brand_action" model="ir.actions.act_window">
+    <!--record id="mis_product_brand_action" model="ir.actions.act_window">
         <field name="name">Brand</field>
         <field name="res_model">mis.product.brand</field>
         <field name="view_mode">tree,form</field>
@@ -212,14 +212,14 @@
                 Add a new Brand
               </p>
         </field>
-    </record>
+    </record-->
 
 
     <menuitem
         action="product_multiple_barcodes.mis_multiply_barcode_action" id="menu_multicode_import"
         parent="stock.menu_product_in_config_stock" sequence="20" group="base.group_no_one"/>
 
-     <menuitem
+     <!--menuitem
         action="product_multiple_barcodes.mis_product_brand_action" id="menu_product_brand"
-        parent="stock.menu_product_in_config_stock" sequence="22" group="stock.menu_stock_inventory_control"/>
+        parent="stock.menu_product_in_config_stock" sequence="22" group="stock.menu_stock_inventory_control"/-->
 </odoo>
