@@ -63,10 +63,10 @@
                     <label for="barcode"/>
                     <div>
                         <field name="barcode" string="" class="oe_inline"/>
-                        <!--button string="Update Barcode" type="action"
+                        <button string="Update Barcode" type="action"
                             name="%(product_multiple_barcodes.action_multiply_barcode_wizard)d"
                             class="oe_inline"
-                            icon="fa-arrow-right"/-->
+                            icon="fa-arrow-right"/>
                     </div>
                 </field>
         </field>
@@ -88,11 +88,11 @@
                     <field name="barcode"
                            string=""
                            class="oe_inline" />
-                    <!--button string="Update Barcode" type="action"
+                    <button string="Update Barcode" type="action"
                         name="%(product_multiple_barcodes.action_multiply_barcode_wizard)d"
                         class="oe_inline"
                         icon="fa-arrow-right"
-                        attrs="{'invisible': [('product_variant_count', '!=', 1)]}"/-->
+                        attrs="{'invisible': [('product_variant_count', '!=', 1)]}"/>
                 </div>
             </field>
             <xpath expr="//page[@name='general_information']"
@@ -132,7 +132,7 @@
         <field name="name">mis.code.source.tree</field>
         <field name="model">mis.code.source</field>
         <field name="arch" type="xml">
-          <tree editable="bottom">
+          <tree>
                     <field name="name"/>
           </tree>
         </field>
