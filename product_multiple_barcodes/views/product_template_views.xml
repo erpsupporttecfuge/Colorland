@@ -128,16 +128,6 @@
             </form>
         </field>
     </record>
-    <record id="mis_code_source_tree_view" model="ir.ui.view">
-        <field name="name">mis.code.source.tree</field>
-        <field name="model">mis.code.source</field>
-        <field name="arch" type="xml">
-          <tree>
-                    <field name="name"/>
-          </tree>
-        </field>
-    </record>
-
     <record id="mis_product_brand_form_view" model="ir.ui.view">
         <field name="name">mis.product.brand.form</field>
         <field name="model">mis.product.brand</field>
@@ -149,16 +139,6 @@
             </form>
         </field>
     </record>
-    <record id="mis_product_brand_tree_view" model="ir.ui.view">
-        <field name="name">mis.product.brand.tree</field>
-        <field name="model">mis.product.brand</field>
-        <field name="arch" type="xml">
-              <tree>
-                    <field name="name"/>
-              </tree>
-        </field>
-    </record>
-
 
 
      <record id="view_multiply_barcode_tree" model="ir.ui.view">
@@ -203,23 +183,8 @@
               </p>
         </field>
     </record>
-    <!--record id="mis_product_brand_action" model="ir.actions.act_window">
-        <field name="name">Brand</field>
-        <field name="res_model">mis.product.brand</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-             <p>
-                Add a new Brand
-              </p>
-        </field>
-    </record-->
-
 
     <menuitem
         action="product_multiple_barcodes.mis_multiply_barcode_action" id="menu_multicode_import"
         parent="stock.menu_product_in_config_stock" sequence="20" group="base.group_no_one"/>
-
-     <!--menuitem
-        action="product_multiple_barcodes.mis_product_brand_action" id="menu_product_brand"
-        parent="stock.menu_product_in_config_stock" sequence="22" group="stock.menu_stock_inventory_control"/-->
 </odoo>
