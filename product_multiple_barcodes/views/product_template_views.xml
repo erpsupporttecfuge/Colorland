@@ -128,6 +128,7 @@
             </form>
         </field>
     </record>
+
     <record id="mis_product_brand_form_view" model="ir.ui.view">
         <field name="name">mis.product.brand.form</field>
         <field name="model">mis.product.brand</field>
@@ -139,6 +140,17 @@
             </form>
         </field>
     </record>
+
+    <record id="view_product_brand_tree" model="ir.ui.view">
+            <field name="name">Mis Product Tree</field>
+            <field name="model">mis.product.brand</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
 
 
      <record id="view_multiply_barcode_tree" model="ir.ui.view">
@@ -183,8 +195,21 @@
               </p>
         </field>
     </record>
+    <record id="mis_product_brand_action" model="ir.actions.act_window">
+        <field name="name">Mis Brand</field>
+        <field name="res_model">mis.product.brand</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+             <p>
+                Add a new Multi Code
+              </p>
+        </field>
+    </record>
 
     <menuitem
         action="product_multiple_barcodes.mis_multiply_barcode_action" id="menu_multicode_import"
-        parent="stock.menu_product_in_config_stock" sequence="20" group="base.group_no_one"/>
+        parent="stock.menu_product_in_config_stock" sequence="20" groups="base.group_no_one"/>
+    <menuitem
+        action="product_multiple_barcodes.mis_product_brand_action" id="menu_brand_root"
+        parent="stock.menu_product_in_config_stock" sequence="30"  groups="group_stock_manager,group_stock_user"/>
 </odoo>
