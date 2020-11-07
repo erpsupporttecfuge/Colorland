@@ -5,13 +5,13 @@ from odoo.exceptions import UserError
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
-    def button_confirm(self):
-        res = super(PurchaseOrder, self).button_confirm()
-        if self.analytic_id:
+#    def button_confirm(self):
+#        res = super(PurchaseOrder, self).button_confirm()
+#        if self.analytic_id:
 #            raise UserError(self.analytic_id.id)
-            for pick in self.picking_ids:
-                pick.analytic_id = self.analytic_id.id
-        return res
+#            for pick in self.picking_ids:
+#                pick.analytic_id = self.analytic_id.id
+#        return res
 
 class PurchaseOrderLine(models.Model):
     _inherit = "purchase.order.line"
