@@ -11,6 +11,10 @@ class POSSession(models.Model):
     stop_at = fields.Datetime(
         readonly=False,
     )
+    custom_analytic_account_id = fields.Many2one(
+        'account.analytic.account',
+        string='Analytic Account',
+    )
 
     def write(self, vals):
         if vals.get('stop_at') and self._context.get('custom_action_session_close'):
@@ -32,5 +36,5 @@ class POSSession(models.Model):
         local_dt = local.utcoffset(self.stop_at)
         custom_pos_session_close_at = (self.stop_at + local_dt).date() #CONVERT UTC TIME TO USER TIMEZONE
 #        res = super(POSSession, self.with_context(custom_pos_session_close_at=self.stop_at.date()))._create_account_move()
-        res = super(POSSession, self.with_context(custom_pos_session_close_at=custom_pos_session_close_at))._create_account_move()
+        res = super(POSSession, self.with_context(custom_pos_session_close_at=custom_pos_session_close_at,custom_pos_analytic_account_id=self.custom_analytic_account_id.id))._create_account_move()
         return res

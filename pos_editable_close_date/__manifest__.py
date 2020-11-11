@@ -3,7 +3,7 @@
 {
     "name": "POS Editable Close Date",
     "summary": "POS Editable Close Date",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "license": "Other proprietary",
 'author': "Sananaz Mansuri",
     'website': 'www.odoo.com',
