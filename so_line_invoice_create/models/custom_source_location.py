@@ -5,6 +5,7 @@ from odoo import models, fields
 
 class SourceLocation(models.Model):
     _name = 'custom.source.location'
+    _description = 'Warehouse location'
 
     name = fields.Char(
         string='Name',
