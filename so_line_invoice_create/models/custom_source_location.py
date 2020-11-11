@@ -5,9 +5,10 @@ from odoo import models, fields
 
 class SourceLocation(models.Model):
     _name = 'custom.source.location'
+    _description = 'Warehouse location'
 
     name = fields.Char(
-        string='Source Name',
+        string='Name',
         required=True,
     )
     stock_location_id = fields.Many2one(
@@ -19,5 +20,4 @@ class SourceLocation(models.Model):
     analytic_account_id = fields.Many2one(
         'account.analytic.account',
         'Analytic Account',
-        required=True,
     )

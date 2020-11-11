@@ -10,10 +10,12 @@ class SaleOrder(models.Model):
     custom_source_location_id = fields.Many2one(
         'stock.location',
         'Source Location',
+        required=True,
     )
     custom_source_id = fields.Many2one(
         'custom.source.location',
-        'Source Name'
+        'Source',
+        readonly=True,
     )
     
     @api.onchange('custom_source_id')

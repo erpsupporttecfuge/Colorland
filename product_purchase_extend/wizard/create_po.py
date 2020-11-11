@@ -5,6 +5,7 @@ from odoo import models, fields, api
 
 class CreatePO(models.TransientModel):
     _name = 'custom.product.create.po'
+    _description = 'Product create PO'
 
     @api.model
     def _get_picking_type(self):

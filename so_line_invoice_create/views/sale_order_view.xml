@@ -9,43 +9,10 @@
             </xpath>
             <xpath expr="//field[@name='sale_order_template_id']" position="after">
                 <field name="client_order_ref"/>
-                <field name="custom_source_id" attrs="{'readonly': [('state', 'not in', ['draft', 'sent'])], 'required':True}"/>
+                <field name="custom_source_id" attrs="{'readonly': [('state', 'not in', ['draft', 'sent'])]}"/>
             </xpath>
             <xpath expr="//field[@name='payment_term_id']" position="after" >
-                <field name="custom_source_location_id" attrs="{'required':True}"/>
-            </xpath>
-        </field>
-    </record>
-
-    <record id="view_order_tree_inherit_ref_change" model="ir.ui.view">
-        <field name="name">sale.order.tree.inherit.ref.change</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_tree"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="client_order_ref"/>
-            </xpath>
-        </field>
-    </record>
-
-    <record id="view_order_sale_order_analytic_account_id" model="ir.ui.view">
-        <field name="name">sale.order.form.inherit.analytic.account</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_form" />
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='analytic_account_id']" position="replace">
-                <field name="analytic_account_id" attrs="{'required':True}"/>
-            </xpath>
-        </field>
-    </record>
-
-    <record id="view_order_sale_order_original_source" model="ir.ui.view">
-        <field name="name">sale.order.form.original.source</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_form" />
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='source_id']" position="replace">
-                <field name="source_id" string="Channel"/>
+                <field name="custom_source_location_id"/>
             </xpath>
         </field>
     </record>
