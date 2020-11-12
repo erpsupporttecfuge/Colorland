@@ -4,7 +4,7 @@
 
 {
     'name': "Stock Request Extention",
-    'version': '1.0.0',
+    'version': '1.2.0',
     'license': 'Other proprietary',
     'category': 'Inventory',
     'summary': """Stock Request Extention""",
@@ -18,8 +18,10 @@
         'stock_request',
     ],
     'data': [
+        'security/security.xml',
         'views/stock_request_orders_views.xml',
-        'report/stock_request_orders_report.xml'
+        'report/stock_request_orders_report.xml',
+        'views/stock_request_order_view.xml',
     ],
     'installable': True,
     'application': False,
