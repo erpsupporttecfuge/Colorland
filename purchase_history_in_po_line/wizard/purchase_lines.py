@@ -10,6 +10,7 @@ from odoo.exceptions import UserError, AccessError
 
 class prevurchaselinewiz(models.TransientModel):
     _name = "purchaseline.prev"
+    _description ="Purchase Previous"
     _order = 'date desc'
     
     wiz_id = fields.Many2one('purchaseline.wizard')

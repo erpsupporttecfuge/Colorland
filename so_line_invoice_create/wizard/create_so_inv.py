@@ -5,6 +5,7 @@ from odoo import models, fields, api
 
 class CreateSoLine(models.TransientModel):
     _name = 'create.so.line'
+    _description ='So Line'
     
     def create_inv_line(self):
         so_line_ids = self.env['sale.order.line'].browse(self._context.get('active_ids'))
