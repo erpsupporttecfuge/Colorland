@@ -15,6 +15,7 @@ class StockRequestOrder(models.Model):
     def action_custom_submitted(self):
         for rec in self:
             rec.custom_stock_request_order_submitted = True
+            rec.state = 'open'
     
     def action_cancel(self):
         res = super(StockRequestOrder, self).action_cancel()

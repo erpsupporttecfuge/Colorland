@@ -31,6 +31,8 @@
                             </div>
                           
                         </div>
+
+
                         <div class="row mt32 mb32">
                             <div class="col-auto" name="div_origin">
                                 <strong>Order:</strong>
@@ -41,6 +43,15 @@
                                 <p t-field="o.expected_date"/>
                             </div>
                         </div>
+
+                        <div class="row mt32 mb32">
+                            <div class="col-auto" name="div_origin">
+                                <strong>Remarks:</strong>
+                                <p t-field="o.remarks"/>
+                            </div>
+
+                        </div>
+
                         <table class="table table-sm" name="stock_move_table">
                             <thead>
                                 <tr>
