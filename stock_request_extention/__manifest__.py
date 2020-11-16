@@ -22,6 +22,7 @@
         'views/stock_request_orders_views.xml',
         'report/stock_request_orders_report.xml',
         'views/stock_request_order_view.xml',
+        'security/ir.model.access.csv',
     ],
     'installable': True,
     'application': False,

@@ -42,6 +42,18 @@
                                 <strong>Expected Date:</strong>
                                 <p t-field="o.expected_date"/>
                             </div>
+                            <div class="col-auto" name="div_origin">
+                                <strong>Type :</strong>
+                                <p t-field="o.request_type.name"/>
+                            </div>
+                            <div class="col-auto" name="div_sched_date">
+                                <strong>From:</strong>
+                                <p t-field="o.location_id.name"/>
+                            </div>
+                            <div class="col-auto" name="div_sched_date">
+                                <strong>To:</strong>
+                                <p t-field="o.to_location_id.name"/>
+                            </div>
                         </div>
 
                         <div class="row mt32 mb32">
