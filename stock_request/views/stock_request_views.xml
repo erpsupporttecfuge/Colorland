@@ -63,6 +63,7 @@
                                 name="from_location_id" options="{'no_create': True}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                             <field
                                 name="to_location_id" options="{'no_create': True}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="requested_by"/>
                             <field
                                 name="company_id"
                                 groups="base.group_multi_company"
@@ -113,6 +114,7 @@
 
                 <field name="from_location_id"/>
                  <field name="to_location_id"/>
+                 <field name="requested_by"/>
                 <field name="company_id" groups="base.group_multi_company" />
                 <separator />
                 <!--filter
@@ -147,6 +149,14 @@
                         domain="[]"
                         context="{'group_by':'to_location_id'}"
                     />
+                     <filter
+                        string="Requested By"
+                        name="Requested By"
+                        domain="[]"
+                        context="{'group_by':'requested_by'}"
+                    />
+
+
                 </group>
             </search>
         </field>
