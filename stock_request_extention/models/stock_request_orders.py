@@ -11,6 +11,8 @@ class StockRequestOrder(models.Model):
         string='Route',
     )
 
+    remarks = fields.Text('Remark')
+
 
 class StockRequest(models.Model):
     _inherit = 'stock.request'
@@ -19,5 +21,8 @@ class StockRequest(models.Model):
     route_id = fields.Many2one(
         domain=[],
     )
+
+    def _action_confirm(self):
+        self.state = 'open'
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -13,6 +13,7 @@
             </xpath>
             <xpath expr="//field[@name='procurement_group_id']" position="after">
                 <field name="route_id"/>
+                <field name="remarks"/>
             </xpath>
             <xpath expr="//field[@name='stock_request_ids']" position="attributes">
                 <attribute name="context">{
