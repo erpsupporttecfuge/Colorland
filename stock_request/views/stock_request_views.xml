@@ -9,6 +9,7 @@
                 <field name="from_location_id"/>
                 <field name="to_location_id"/>
                 <field name="request_type"/>
+                <field name="requested_by"/>
                 <field name="state" />
             </tree>
         </field>
