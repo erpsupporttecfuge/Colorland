@@ -51,10 +51,17 @@ order by session_id"""
         self._cr.execute(strsql)
         objdiscountrec = self._cr.dictfetchall()
 
-
-        discount_amount=0.0
+        discount_amount = 0.0
         for discountrec in objdiscountrec:
             discount_amount += discountrec['discount']
+
+        strsql = """select sum((price_unit*qty)-price_subtotal_incl) as discount from pos_order_line where order_id in (select id from pos_order where session_id=""" + str(
+            session_id) + """ )"""
+        self._cr.execute(strsql)
+        objdiscount1rec = self._cr.dictfetchall()
+        for discount1rec in objdiscount1rec:
+            discount_amount += discount1rec['discount']
+
 
         docargs = {
             'doc_ids': docids,

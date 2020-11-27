@@ -45,7 +45,7 @@
                         Total Discount
                     </td>
                     <td  align="right">
-                        <t t-esc="'{0:,.2f}'.format(discount_amount)" />
+                        -<t t-esc="'{0:,.2f}'.format(discount_amount)" />
                     </td>
 
                 </tr>
