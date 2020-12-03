@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="stock_quant_view_form_inherit_custom" model="ir.ui.view">
+        <field name="name">stock.quant.inherit</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.quant_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="inside">
+                <filter string="Today" name="custom_today_order" domain="[('in_date', '&gt;', context_today().strftime('%Y-%m-%d 00:00:00')),('in_date', '&lt;', context_today().strftime('%Y-%m-%d 23:59:59'))]"/>
+            </xpath>
+        </field>
+    </record>
+    
+</odoo>
