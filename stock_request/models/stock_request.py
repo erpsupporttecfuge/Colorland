@@ -107,6 +107,9 @@ class StockRequest(models.Model):
     def action_draft(self):
         self.write({"state": "draft"})
         return True
+    def action_draft_manager(self):
+        self.write({"state": "draft"})
+        return True
 
     def action_cancel(self):
         for rec in self.request_ids:
