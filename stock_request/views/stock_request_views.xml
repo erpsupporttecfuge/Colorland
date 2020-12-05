@@ -45,6 +45,14 @@
                         type="object"
                         string="Set to Draft"
                     />
+                    <button
+                        name="action_draft_manager"
+                        states="done"
+                        type="object"
+                        string="Set to Draft"
+                        groups="stock_request.group_stock_request_manager"
+                    />
+
                     <field name="state" widget="statusbar" />
                 </header>
                 <sheet>
