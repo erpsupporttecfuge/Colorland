@@ -9,6 +9,19 @@
                 <attribute name="attrs">{'readonly': [('state', '=', 'closed')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='stop_at']" position="after">
+                <field name="custom_analytic_account_id" required="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_config_form_inherit_analytic_ac" model="ir.ui.view">
+        <field name="name">pos.config.form.inherit.analytic_ac</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='journal_id']" position="after">
+                <label string="Analytic Account" for="custom_analytic_account_id" class="col-lg-3 o_light_label"/>
                 <field name="custom_analytic_account_id"/>
             </xpath>
         </field>
