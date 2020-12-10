@@ -4,6 +4,13 @@ import pytz
 from datetime import datetime
 from odoo import models, fields
 
+class POSConfig(models.Model):
+    _inherit = "pos.config"
+
+    custom_analytic_account_id = fields.Many2one(
+        'account.analytic.account',
+        string='Analytic Account',
+    )
 
 class POSSession(models.Model):
     _inherit = "pos.session"
@@ -15,6 +22,20 @@ class POSSession(models.Model):
         'account.analytic.account',
         string='Analytic Account',
     )
+
+    def action_pos_session_open(self):
+        # second browse because we need to refetch the data from the DB for cash_register_id
+        # we only open sessions that haven't already been opened
+        for session in self.filtered(lambda session: session.state in ('new_session', 'opening_control')):
+            values = {}
+            if not session.start_at:
+                values['start_at'] = fields.Datetime.now()
+            if not session.custom_analytic_account_id:
+                values['custom_analytic_account_id'] = self.config_id.custom_analytic_account_id.id
+            values['state'] = 'opened'
+            session.write(values)
+            session.statement_ids.button_open()
+        return True
 
     def write(self, vals):
         if vals.get('stop_at') and self._context.get('custom_action_session_close'):
