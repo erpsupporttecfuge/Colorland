@@ -26,6 +26,7 @@ class OrderNotes(models.Model):
 
         return {
             'user_id':      ui_order['user_id'] or False,
+            'employee_id': ui_order['employee_id'] or False,
             'session_id':   ui_order['pos_session_id'],
             'lines':        [process_line(l) for l in ui_order['lines']] if ui_order['lines'] else False,
             'pos_reference': ui_order['name'],
