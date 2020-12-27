@@ -126,7 +126,7 @@ class ReportSaleAgentWizard(models.TransientModel):
         column_width = 15
         worksheet.set_column(colno, colno, column_width)
         worksheet.write(1, colno, 'Total Commission', wbf['content_border_bg'])
-        worksheet.merge_range('A%s:H%s' % (1, 1), 'SALES AGENT COMMISSION REPORT ' + str(header_date), wbf['header'])
+        worksheet.merge_range('A%s:K%s' % (1, 1), 'SALES AGENT COMMISSION REPORT ' + str(header_date), wbf['header'])
         rowno =2
         colno =0
         summary_amount = {}

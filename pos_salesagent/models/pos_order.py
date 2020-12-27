@@ -19,7 +19,7 @@ class OrderNotes(models.Model):
     def _order_fields(self, ui_order):
         order = super(OrderNotes, self)._order_fields(ui_order)
         process_line = partial(self.env['pos.order.line']._order_line_fields, session_id=ui_order['pos_session_id'])
-        objemp = self.env['hr.employee'].search([('id', '=', ui_order['agent_id']  if "agent_id" in ui_order else False)])
+        objemp = self.env['hr.employee'].search([('id', '=', ui_order['agent_id']  if "agent_id" in ui_order else False)], limit=1)
         agentcom=0.00
         if objemp:
             agentcom=objemp.sales_commision
