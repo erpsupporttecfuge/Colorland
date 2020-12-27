@@ -12,6 +12,7 @@ class OrderNotes(models.Model):
     _inherit = 'pos.order'
 
     agent_id = fields.Many2one('hr.employee', string='Agent')
+    agent_commision = fields.Float('Agent Commision (%)', default=0.00)
 
     @api.model
 
