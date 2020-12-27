@@ -19,6 +19,10 @@ class OrderNotes(models.Model):
     def _order_fields(self, ui_order):
         order = super(OrderNotes, self)._order_fields(ui_order)
         process_line = partial(self.env['pos.order.line']._order_line_fields, session_id=ui_order['pos_session_id'])
+        objemp = self.env['hr.employee'].search([('id', '=', ui_order['agent_id']  if "agent_id" in ui_order else False)])
+        agentcom=0.00
+        if objemp:
+            agentcom=objemp.sales_commision
         updated_lines = ui_order['lines']
         for rec in updated_lines:
             objproduct = self.env['product.product'].search([('id','=', rec[2]["product_id"])], limit=1)
@@ -42,5 +46,6 @@ class OrderNotes(models.Model):
             'amount_return':  ui_order['amount_return'],
             'company_id': self.env['pos.session'].browse(ui_order['pos_session_id']).company_id.id,
             'to_invoice': ui_order['to_invoice'] if "to_invoice" in ui_order else False,
-            'agent_id': ui_order['agent_id']  if "agent_id" in ui_order else False
+            'agent_id': ui_order['agent_id']  if "agent_id" in ui_order else False,
+            'agent_commision': agentcom,
         }

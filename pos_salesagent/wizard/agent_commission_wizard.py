@@ -110,12 +110,62 @@ class ReportSaleAgentWizard(models.TransientModel):
         colno += 1
         column_width = 15
         worksheet.set_column(colno, colno, column_width)
+        worksheet.write(1, colno, 'Total SO Amount (Total - Tax - Discount)', wbf['content_border_bg'])
+
+        colno += 1
+        column_width = 15
+        worksheet.set_column(colno, colno, column_width)
+        worksheet.write(1, colno, 'Commission %', wbf['content_border_bg'])
+
+        colno += 1
+        column_width = 15
+        worksheet.set_column(colno, colno, column_width)
+        worksheet.write(1, colno, 'Commission per SO', wbf['content_border_bg'])
+
+        colno += 1
+        column_width = 15
+        worksheet.set_column(colno, colno, column_width)
         worksheet.write(1, colno, 'Total Commission', wbf['content_border_bg'])
         worksheet.merge_range('A%s:H%s' % (1, 1), 'SALES AGENT COMMISSION REPORT ' + str(header_date), wbf['header'])
         rowno =2
         colno =0
         summary_amount = {}
+
         for recorder in objposorder:
+            colno = 0
+            worksheet.write(rowno, colno, recorder.date_order, wbf['content_date'])
+            colno += 1
+            worksheet.write(rowno, colno, recorder.name, wbf['content_border'])
+            colno += 1
+            worksheet.write(rowno, colno, recorder.pos_reference, wbf['content_border'])
+            colno += 1
+            worksheet.write(rowno, colno, recorder.agent_id.name, wbf['content_border'])
+            colno += 1
+            worksheet.write(rowno, colno, "Commission for the Sales Order", wbf['content_border'])
+            colno += 1
+            worksheet.write(rowno, colno, "", wbf['content_float_border'])
+            colno += 1
+            worksheet.write(rowno, colno, "", wbf['content_float_border'])
+            colno += 1
+            worksheet.write(rowno, colno, (recorder.amount_paid - recorder.amount_tax), wbf['content_float_border'])
+            colno += 1
+            worksheet.write(rowno, colno, recorder.agent_commision, wbf['content_float_border'])
+            colno += 1
+            amtcom = (recorder.agent_commision * (recorder.amount_paid - recorder.amount_tax) / 100)
+            worksheet.write(rowno, colno, amtcom, wbf['content_float_border'])
+            colno += 1
+
+            worksheet.write(rowno, colno,amtcom , wbf['content_float_border'])
+            colno += 1
+
+            totalcom = amtcom
+            if (recorder.agent_id.name in summary_amount):
+                tmptotal = float(summary_amount[recorder.agent_id.name]) + totalcom
+                summary_amount[recorder.agent_id.name] = tmptotal
+            else:
+                summary_amount[recorder.agent_id.name] = totalcom
+            rowno += 1
+
             objposorderline = self.env['pos.order.line'].search([('order_id', '=',recorder.id)])
             for rec in objposorderline:
                 colno = 0
@@ -132,6 +182,12 @@ class ReportSaleAgentWizard(models.TransientModel):
                 worksheet.write(rowno, colno, rec.qty, wbf['content_float_border'])
                 colno += 1
                 worksheet.write(rowno, colno, rec.agent_comm_amt, wbf['content_float_border'])
+                colno += 1
+                worksheet.write(rowno, colno, "", wbf['content_float_border'])
+                colno += 1
+                worksheet.write(rowno, colno, "", wbf['content_float_border'])
+                colno += 1
+                worksheet.write(rowno, colno, "", wbf['content_float_border'])
                 colno += 1
                 totalcom = rec.qty*rec.agent_comm_amt
                 worksheet.write(rowno, colno,totalcom , wbf['content_float_border'])
