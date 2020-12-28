@@ -25,6 +25,24 @@
             </div>
         </div>
     </t>
+
+    <t t-extend="OrderReceipt">
+        <t t-jquery=".pos-receipt .pos-receipt-contact" t-operation='append'>
+            <t t-if='order.agent_id'>
+                <div>Agent : <t t-esc='order.order_agent'/></div>
+            </t>
+        </t>
+
+        <t t-jquery=".pos-receipt .orderlines" t-operation='after'>
+             <br/>
+
+                <div>No of Items : <t t-esc='orderlines.length'/></div>
+
+        </t>
+
+    </t>
+
+
      <!--t t-extend="PosTicket">
         <t t-jquery='.receipt-change' t-operation='after'>
               <tr>
