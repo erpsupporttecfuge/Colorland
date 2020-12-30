@@ -15,7 +15,6 @@ class OrderNotes(models.Model):
     agent_commision = fields.Float('Agent Commision (%)', default=0.00)
 
     @api.model
-
     def _order_fields(self, ui_order):
         order = super(OrderNotes, self)._order_fields(ui_order)
         process_line = partial(self.env['pos.order.line']._order_line_fields, session_id=ui_order['pos_session_id'])
@@ -24,10 +23,12 @@ class OrderNotes(models.Model):
         if objemp:
             agentcom=objemp.sales_commision
         updated_lines = ui_order['lines']
+
         for rec in updated_lines:
             objproduct = self.env['product.product'].search([('id','=', rec[2]["product_id"])], limit=1)
             if objproduct:
                 rec[2]["agent_comm_amt"]= objproduct.sales_agent_commision
+
 
         return {
             'user_id':      ui_order['user_id'] or False,

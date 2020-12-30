@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template id="template" xml:space="preserve">
 
+
+
     <t t-name="AgentSelectionButton">
         <div class='control-button in_note'>
             <i class="fa fa-user-plus">Add Sales Agent</i>
         </div>
     </t>
-
     <t t-name="AgentPopupWidget">
         <div class="modal-dialog">
             <div class="popup popup-note">
@@ -29,30 +30,22 @@
     <t t-extend="OrderReceipt">
         <t t-jquery=".pos-receipt .pos-receipt-contact" t-operation='append'>
             <t t-if='order.agent_id'>
-                <div>Agent : <t t-esc='order.order_agent'/></div>
+                <div>Sales Person : <t t-esc='order.order_agent'/></div>
             </t>
         </t>
-
-        <t t-jquery=".pos-receipt .orderlines" t-operation='after'>
+        <t t-jquery=".pos-receipt .before-footer" t-operation='before'>
              <br/>
 
-                <div>No of Items : <t t-esc='orderlines.length'/></div>
-
+             <t t-set="totqty" t-value="0"/>
+             <t t-foreach='receipt.orderlines' t-as='ln'>
+                 <t t-set="totqty" t-value='totqty+ln.quantity'/>
+             </t>
+                <div class="row totalquantity">
+                    <hr/>
+                    <span class="pos-receipt-left-align">Total Items : <t t-esc='receipt.orderlines.length'/></span>
+                    <span class="pos-receipt-right-align">Total Quantities : <t t-esc='totqty'/></span>
+                     <hr/>
+            </div>
         </t>
-
     </t>
-
-
-     <!--t t-extend="PosTicket">
-        <t t-jquery='.receipt-change' t-operation='after'>
-              <tr>
-                  <td class="pos-left-align">
-                      Agent:
-                  </td>
-                  <td class="pos-right-align">
-                      <t t-esc='order.order_agent'/>
-                  </td>
-              </tr>
-        </t>
-    </t-->
 </template>
