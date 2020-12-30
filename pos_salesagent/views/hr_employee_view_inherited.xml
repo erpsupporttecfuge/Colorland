@@ -21,6 +21,7 @@
                 <xpath expr="//field[@name='department_id']" position="after">
                     <field name="is_a_agent"/>
                     <field name="sales_commision"/>
+
                 </xpath>
             </field>
         </record>
