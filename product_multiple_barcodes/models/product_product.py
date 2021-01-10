@@ -43,10 +43,10 @@ class ProductProduct(models.Model):
             if not barcode_names:
                 continue
             products = self.env['product.product'].search([
-                ('barcode', 'in', barcode_names), ('id', '!=', product.id)
+                ('barcode', 'in', barcode_names), ('id', '!=', product.id),  ('company_id', '=', product.company_id)
             ], limit=1)
             barcode_ids = self.env['product.barcode.multi'].search([
-                ('name', 'in', barcode_names), ('product_id', '!=', product.id)
+                ('name', 'in', barcode_names), ('product_id', '!=', product.id),  ('company_id', '=', product.company_id)
             ], limit=1)
             if products or barcode_ids or len(barcode_names) != len(set(barcode_names)):
                 raise UserError(
