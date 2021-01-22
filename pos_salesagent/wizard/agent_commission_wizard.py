@@ -80,6 +80,11 @@ class ReportSaleAgentWizard(models.TransientModel):
         colno += 1
         column_width = 20
         worksheet.set_column(colno, colno, column_width)
+        worksheet.write(1, colno, 'POS Name', wbf['content_border_bg'])
+
+        colno += 1
+        column_width = 20
+        worksheet.set_column(colno, colno, column_width)
         worksheet.write(1, colno, 'Order Name', wbf['content_border_bg'])
 
         colno += 1
@@ -126,14 +131,17 @@ class ReportSaleAgentWizard(models.TransientModel):
         column_width = 15
         worksheet.set_column(colno, colno, column_width)
         worksheet.write(1, colno, 'Total Commission', wbf['content_border_bg'])
-        worksheet.merge_range('A%s:K%s' % (1, 1), 'SALES AGENT COMMISSION REPORT ' + str(header_date), wbf['header'])
+        worksheet.merge_range('A%s:L%s' % (1, 1), 'SALES AGENT COMMISSION REPORT ' + str(header_date), wbf['header'])
         rowno =2
         colno =0
         summary_amount = {}
+        summary_amount_bypos = {}
 
         for recorder in objposorder:
             colno = 0
             worksheet.write(rowno, colno, recorder.date_order, wbf['content_date'])
+            colno += 1
+            worksheet.write(rowno, colno, recorder.session_id.config_id.name, wbf['content_border'])
             colno += 1
             worksheet.write(rowno, colno, recorder.name, wbf['content_border'])
             colno += 1
@@ -164,12 +172,23 @@ class ReportSaleAgentWizard(models.TransientModel):
                 summary_amount[recorder.agent_id.name] = tmptotal
             else:
                 summary_amount[recorder.agent_id.name] = totalcom
+
+
+
+            if (recorder.session_id.config_id.name+','+recorder.agent_id.name in summary_amount_bypos):
+                tmptotal = float(summary_amount_bypos[recorder.session_id.config_id.name+','+recorder.agent_id.name]) + totalcom
+                summary_amount_bypos[recorder.session_id.config_id.name+','+recorder.agent_id.name] = tmptotal
+            else:
+                summary_amount_bypos[recorder.session_id.config_id.name+','+recorder.agent_id.name] = totalcom
+
             rowno += 1
 
             objposorderline = self.env['pos.order.line'].search([('order_id', '=',recorder.id)])
             for rec in objposorderline:
                 colno = 0
                 worksheet.write(rowno, colno, recorder.date_order, wbf['content_date'])
+                colno += 1
+                worksheet.write(rowno, colno, recorder.session_id.config_id.name, wbf['content_border'])
                 colno+=1
                 worksheet.write(rowno, colno, recorder.name, wbf['content_border'])
                 colno += 1
@@ -198,6 +217,14 @@ class ReportSaleAgentWizard(models.TransientModel):
                 else:
                     summary_amount[recorder.agent_id.name] = totalcom
 
+                if (recorder.session_id.config_id.name + ',' + recorder.agent_id.name in summary_amount_bypos):
+                    tmptotal = float(summary_amount_bypos[
+                                         recorder.session_id.config_id.name + ',' + recorder.agent_id.name]) + totalcom
+                    summary_amount_bypos[recorder.session_id.config_id.name + ',' + recorder.agent_id.name] = tmptotal
+                else:
+                    summary_amount_bypos[recorder.session_id.config_id.name + ',' + recorder.agent_id.name] = totalcom
+
+
                 rowno+=1
 
         worksheet2 = workbook.add_worksheet('Commission Summary')
@@ -221,6 +248,38 @@ class ReportSaleAgentWizard(models.TransientModel):
             colno += 1
             worksheet2.write(rowno, colno, summary_amount[reccom], wbf['content_float_border'])
             rowno+=1
+
+
+
+
+    #========================== by pos
+
+        worksheet3 = workbook.add_worksheet('Commission Summary by POS')
+
+        colno = 0
+        column_width = 30
+        worksheet3.set_column(colno, colno, column_width)
+        worksheet3.write(1, colno, 'POS Name', wbf['content_border_bg'])
+        colno += 1
+        worksheet3.set_column(colno, colno, column_width)
+        worksheet3.write(1, colno, 'Agent Name', wbf['content_border_bg'])
+
+        colno += 1
+        column_width = 25
+        worksheet3.set_column(colno, colno, column_width)
+        worksheet3.write(1, colno, 'Total Commission', wbf['content_border_bg'])
+
+        rowno = 2
+        colno = 0
+        for reccom in summary_amount_bypos:
+            colno = 0
+            agnamepos = reccom.split(",")
+            worksheet3.write(rowno, colno, agnamepos[0], wbf['content_border'])
+            colno += 1
+            worksheet3.write(rowno, colno, agnamepos[1], wbf['content_border'])
+            colno += 1
+            worksheet3.write(rowno, colno, summary_amount_bypos[reccom], wbf['content_float_border'])
+            rowno += 1
 
         workbook.close()
         out = base64.encodestring(fp.getvalue())
