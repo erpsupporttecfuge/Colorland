@@ -22,7 +22,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='stop_at']" position="after">
                 <field name="custom_analytic_account_id"/>
-                <field name="total_cost"  groups="base.group_no_one"/>
+                <!--field name="total_cost"  groups="base.group_no_one"/-->
             </xpath>
         </field>
     </record>
