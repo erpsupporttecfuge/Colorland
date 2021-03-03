@@ -23,6 +23,26 @@ class POSSession(models.Model):
         string='Analytic Account',
     )
 
+    total_cost = fields.Float('Total Cost', compute='_calculate_cost')
+
+
+
+    def _calculate_cost(self):
+
+        for rec in self:
+            totalcost = 0.0
+            objorder = self.env['pos.order'].search([('session_id', '=', rec.id)])
+            for orec in objorder:
+                objorderln = self.env['pos.order.line'].search([('order_id', '=', orec.id)])
+                for rlrec in objorderln:
+                    objprod = self.env['product.product'].search([('id', '=', rlrec.product_id.id)])
+                    if objprod:
+                        totalcost+= rlrec.qty * objprod.standard_price
+            rec.total_cost= totalcost
+
+
+
+
     def action_pos_session_open(self):
         # second browse because we need to refetch the data from the DB for cash_register_id
         # we only open sessions that haven't already been opened
