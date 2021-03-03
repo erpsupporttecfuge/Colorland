@@ -3,7 +3,7 @@
     <record id="view_pos_session_form_inherit_edit_close_Date" model="ir.ui.view">
         <field name="name">pos.session.form.inherit.edit_close_Date</field>
         <field name="model">pos.session</field>
-        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='stop_at']" position="attributes">
                 <attribute name="attrs">{'readonly': [('state', '=', 'closed')]}</attribute>
@@ -15,7 +15,7 @@
         </field>
     </record>
 
-    <!--record id="view_pos_session_tree_inherit_edit_close_Date" model="ir.ui.view">
+    <record id="view_pos_session_tree_inherit_edit_close_Date" model="ir.ui.view">
         <field name="name">pos.session.tree.inherit.edit_close_Date</field>
         <field name="model">pos.session</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_session_tree" />
@@ -25,7 +25,7 @@
                 <field name="total_cost"  groups="base.group_no_one"/>
             </xpath>
         </field>
-    </record-->
+    </record>
 
     <record id="view_pos_config_form_inherit_analytic_ac" model="ir.ui.view">
         <field name="name">pos.config.form.inherit.analytic_ac</field>
