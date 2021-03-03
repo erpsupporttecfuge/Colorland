@@ -26,6 +26,7 @@ class POSSession(models.Model):
     total_cost = fields.Float('Total Cost', compute='_calculate_cost')
 
 
+
     def _calculate_cost(self):
         totalcost =0.0
         for rec in self:
@@ -36,7 +37,9 @@ class POSSession(models.Model):
                     objprod = self.env['product.product'].search([('id', '=', rlrec.product_id.id)])
                     if objprod:
                         totalcost+= rlrec.qty * objprod.standard_price
-        self.total_cost= totalcost
+            rec.total_cost= totalcost
+
+
 
 
     def action_pos_session_open(self):
