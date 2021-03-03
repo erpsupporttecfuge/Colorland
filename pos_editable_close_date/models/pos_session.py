@@ -28,8 +28,9 @@ class POSSession(models.Model):
 
 
     def _calculate_cost(self):
-        totalcost =0.0
+
         for rec in self:
+            totalcost = 0.0
             objorder = self.env['pos.order'].search([('session_id', '=', rec.id)])
             for orec in objorder:
                 objorderln = self.env['pos.order.line'].search([('order_id', '=', orec.id)])
