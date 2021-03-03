@@ -10,6 +10,7 @@
             </xpath>
             <xpath expr="//field[@name='stop_at']" position="after">
                 <field name="custom_analytic_account_id" required="1"/>
+                <field name="total_cost"  groups="base.group_no_one"/>
             </xpath>
         </field>
     </record>
