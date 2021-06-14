@@ -20,6 +20,11 @@
                     <field name="insurance_issued_date"/>
                     <field name="insurance_expiry_date"/>
                 </xpath>
+
+                 <xpath expr="//field[@name='passport_id']" position="after">
+                    <field name="passport_issued_date"/>
+                     <field name="passport_expiry_date"/>
+                </xpath>
             </field>
         </record>
     </data>
