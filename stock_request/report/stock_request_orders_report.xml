@@ -26,10 +26,7 @@
                             </div>
 
                         </div>
-
-
                         <div class="row mt32 mb32">
-
                             <div class="col-3" name="div_sched_date">
                                 <strong>Expected Date:</strong>
                                 <p t-field="o.expected_date"/>
@@ -53,13 +50,13 @@
                                 <strong>Remarks:</strong>
                                 <p t-field="o.remarks"/>
                             </div>
-
                         </div>
-
                         <table class="table table-sm" name="stock_move_table">
                             <thead>
                                 <tr>
                                     <th name="th_sm_product"><strong>Product</strong></th>
+                                    <th name="th_sm_product"><strong>Barcode</strong></th>
+                                    <th name="th_sm_product"><strong>Barcode</strong></th>
                                     <th name="th_sm_quantity"><strong>Quantity</strong></th>
                                     <th name="th_sm_quantity"><strong>Done Quantity</strong></th>
                                 </tr>
@@ -68,6 +65,16 @@
                                 <tr t-foreach="o.request_ids" t-as="request">
                                     <td>
                                         <span t-field="request.product_id"/>
+                                    </td>
+                                     <td>
+                                        <span t-field="request.product_id.barcode"/>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <img t-if="len(request.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN13', request.product_id.barcode, 400, 100, 0)" style="height:35px" alt="Barcode"/>
+                                            <img t-elif="len(request.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN8', request.product_id.barcode, 400, 100, 0)" style="height:35px" alt="Barcode"/>
+                                            <img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('Code128', request.product_id.barcode, 400, 100, 0)" style="height:35px" alt="Barcode"/>
+                                        </span>
                                     </td>
                                     <td>
                                         <span t-field="request.product_uom_qty"/>
@@ -81,6 +88,54 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="row">
+
+                      <div class="col-3" style="right;">
+                          <p class="text-center" style="padding-left:5mm;">
+                              <br/><br/><br/><br/><br/>
+
+                          </p>
+
+                        <p class="text-center" style="padding-left:5mm; border-top:1px solid black; border-length: 7px;">
+
+                            Requested by</p>
+                      </div>
+                        <div class="col-3" style="center;">
+                          <p class="text-center" style="padding-left:5mm;">
+                              <br/><br/><br/><br/><br/>
+
+                          </p>
+
+                        <p class="text-center" style="padding-left:5mm; border-top:1px solid black; border-length: 7px;">
+
+                            Transported by</p>
+                      </div>
+
+                        <div class="col-3" style="center;">
+                  <p class="text-center" style="padding-left:5mm;">
+                      <br/><br/><br/><br/><br/>
+
+                  </p>
+
+                <p class="text-center" style="padding-left:5mm; border-top:1px solid black; border-length: 7px;">
+
+                    Stock Prepared by</p>
+              </div>
+
+
+
+              <div class="col-3" style="left">
+                  <p class="text-center" style="padding-left:5mm;">
+                      <br/><br/><br/><br/><br/>
+
+                  </p>
+
+                <p class="text-center" style="padding-left:5mm; border-top:1px solid black; border-length: 7px;">
+                     Stock Received By
+
+                </p>
+              </div>
+        </div>
                 </t>
              </t>
         </t>
