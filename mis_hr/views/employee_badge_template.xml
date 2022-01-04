@@ -62,7 +62,7 @@
                                 <br/>
                                 <br/>
                                 <br/>
-                                <br/>
+                                <br/><br/><br/>
                                 <table width="100%">
                                     <tr>
                                         <td width="20%">&amp;nbsp;</td>
@@ -86,7 +86,7 @@
                                     <tr>
                                         <td width="20%">&amp;nbsp;</td>
                                         <td align="left" width="50%"
-                                            style="font-size:45px; font-weight:bold; padding-left:40px;">
+                                            style="font-size:45px; font-weight:bold; padding-left:60px;">
                                             <span t-field="o.name"/>
                                         </td>
                                         <td width="30%">&amp;nbsp;</td>
@@ -155,7 +155,7 @@
                                     </tr>
                                     <tr>
                                         <td width="20%">&amp;nbsp;</td>
-                                        <td width="70%" style="font-size:45px; padding-left:40px;" colspan="2">
+                                        <td width="70%" colspan="2">
                                             <img alt="barcode"
                                                  t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.barcode, 600, 120)"
                                                  style="max-height:50pt;max-width:100%;"/>
