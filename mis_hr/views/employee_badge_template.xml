@@ -23,9 +23,9 @@
             model="hr.employee"
             string="Employee Badge"
             report_type="qweb-pdf"
-            name="globozor_reports.employee_badge_template"
-            file="globozor_reports.employee_badge_template"
-            paperformat="globozor_reports.custom_employee_badge_paper_format"
+            name="mis_hr.employee_badge_template"
+            file="mis_hr.employee_badge_template"
+            paperformat="mis_hr.custom_employee_badge_paper_format"
             menu="True"
         />
 
