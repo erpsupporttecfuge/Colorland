@@ -41,7 +41,7 @@
                     <div class="page">
 
                         <div style="position: absolute;opacity: 20.25;z-index: 1000;width: 150%;">
-                            <img t-if="company.logo" t-att-src="'data:image/jpg;base64,%s' % to_text(company.logo)"
+                            <img t-if="o.custom_back" t-att-src="'data:image/jpg;base64,%s' % to_text(o.custom_back)"
                                  style="top:0px;position:absolute;width:67%;height:1900;opacity:0.85;z-index:-1000;">
                                 <br/>
                                 <br/>
