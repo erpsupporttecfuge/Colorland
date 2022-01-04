@@ -25,6 +25,9 @@
                     <field name="passport_issued_date"/>
                      <field name="passport_expiry_date"/>
                 </xpath>
+                <xpath expr="//field[@name='pin']" position="after">
+                     <field name="custom_back" widget="image"/>
+                </xpath>
             </field>
         </record>
     </data>
