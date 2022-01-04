@@ -11,6 +11,7 @@
     'depends': ['hr',],
     'data': [
         'views/mis_hr_employee.xml',
+        'views/employee_badge_template.xml',
     ],
     'demo': [],
     'license': 'AGPL-3',
