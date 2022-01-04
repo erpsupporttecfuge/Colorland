@@ -15,5 +15,6 @@ class MisAuhPartner1(models.Model):
     insurance_no = fields.Char('Insurance No', groups="hr.group_hr_user", tracking=True)
     insurance_issued_date = fields.Date('Insurance Issued Date', groups="hr.group_hr_user", tracking=True)
     insurance_expiry_date = fields.Date('Insurance Expiry Date', groups="hr.group_hr_user", tracking=True)
+    custom_back = field.Binary('Custome Background')
 
 
