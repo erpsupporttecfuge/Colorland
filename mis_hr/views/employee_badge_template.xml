@@ -43,7 +43,7 @@
                         <div style="position: absolute;opacity: 20.25;z-index: 1000;width: 150%;">
                             <img t-if="company.custom_back" t-att-src="'data:image/jpg;base64,%s' % to_text(company.custom_back)"
                                  style="top:0px;position:absolute;width:67%;opacity:0.85;z-index:-1000;"
-                                 height="2000px">
+                                 height="1800px">
                                 <br/>
                                 <br/>
                                 <br/>
