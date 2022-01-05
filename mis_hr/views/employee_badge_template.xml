@@ -76,11 +76,6 @@
                                 <br/>
                                 <br/>
                                 <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
                                 <table width="100%">
                                     <tr>
                                         <td width="20%">&amp;nbsp;</td>
@@ -99,21 +94,6 @@
                                             <span t-field="o.job_id.name"/>
                                         </td>
                                         <td width="30%">&amp;nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="100%" colspan="3">&amp;nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="100%" colspan="3">&amp;nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="100%" colspan="3">&amp;nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="100%" colspan="3">&amp;nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="100%" colspan="3">&amp;nbsp;</td>
                                     </tr>
                                     <tr>
                                         <td width="100%" colspan="3">&amp;nbsp;</td>
