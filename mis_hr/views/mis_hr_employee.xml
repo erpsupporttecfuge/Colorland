@@ -30,5 +30,17 @@
                 </xpath>
             </field>
         </record>
+        
+        <record id="inherit_view_company_form" model="ir.ui.view">
+           <field name="name">HR Employee Form Inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='website']" position="after">
+                     <field name="custom_back" widget="image"/>
+                </xpath>
+            </field>
+        </record>
+        
     </data>
 </odoo>
