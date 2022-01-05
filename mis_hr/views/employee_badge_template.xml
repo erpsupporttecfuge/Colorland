@@ -55,6 +55,11 @@
                                 <br/>
                                 <br/>
                                 <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
                                 <table width="100%">
                                     <tr>
                                         <td width="20%">&amp;nbsp;</td>
@@ -125,10 +130,6 @@
                                             <span>ID Number:</span>&amp;nbsp;
                                         </td>
                                     </tr>
-
-                                    <tr>
-                                        <td width="100%" colspan="3">&amp;nbsp;</td>
-                                    </tr>
                                     <tr>
                                         <td width="100%" colspan="3">&amp;nbsp;</td>
                                     </tr>
@@ -142,17 +143,11 @@
                                         <td width="100%" colspan="3">&amp;nbsp;</td>
                                     </tr>
                                     <tr>
-                                        <td width="100%" colspan="3">&amp;nbsp;</td>
-                                    </tr>
-                                    <tr>
                                         <td width="20%">&amp;nbsp;</td>
                                         <td width="70%" style="font-size:45px; padding-left:40px;" colspan="2">
                                             <span>PH:</span>&amp;nbsp;
                                             <span t-field="o.phone"/>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="100%" colspan="3">&amp;nbsp;</td>
                                     </tr>
                                     <tr>
                                         <td width="100%" colspan="3">&amp;nbsp;</td>
