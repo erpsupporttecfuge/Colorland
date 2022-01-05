@@ -17,4 +17,9 @@ class MisAuhPartner1(models.Model):
     insurance_expiry_date = fields.Date('Insurance Expiry Date', groups="hr.group_hr_user", tracking=True)
     custom_back = fields.Binary('Custome Background')
 
+   
 
+class ResCompany(models.Model):
+    _inherit = 'res.company'
+    
+    custom_back = fields.Binary('Custome Background')
