@@ -18,19 +18,19 @@
             <field name="dpi">90</field>
         </record>
 
-         <report
-            id="custom_employee_badge"
-            model="hr.employee"
-            string="Employee Badge"
-            report_type="qweb-pdf"
-            name="mis_hr.employee_badge_template"
-            file="mis_hr.employee_badge_template"
-            paperformat="mis_hr.custom_employee_badge_paper_format"
-            menu="True"
+        <report
+                id="custom_employee_badge"
+                model="hr.employee"
+                string="Employee Badge"
+                report_type="qweb-pdf"
+                name="globozor_reports.employee_badge_template"
+                file="globozor_reports.employee_badge_template"
+                paperformat="globozor_reports.custom_employee_badge_paper_format"
+                menu="True"
         />
 
         <template id="employee_badge_template">
-            <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
                 <t t-foreach="docs" t-as="o">
                     <t t-if="o and 'company_id' in o">
                         <t t-set="company" t-value="o.company_id"/>
@@ -41,8 +41,9 @@
                     <div class="page">
 
                         <div style="position: absolute;opacity: 20.25;z-index: 1000;width: 150%;">
-                            <img t-if="o.custom_back" t-att-src="'data:image/jpg;base64,%s' % to_text(o.custom_back)"
-                                 style="top:0px;position:absolute;width:67%;height:1900;opacity:0.85;z-index:-1000;">
+                            <img t-if="company.custom_back" t-att-src="'data:image/jpg;base64,%s' % to_text(company.custom_back)"
+                                 style="top:0px;position:absolute;width:67%;opacity:0.85;z-index:-1000;"
+                                 height="2000px">
                                 <br/>
                                 <br/>
                                 <br/>
@@ -62,18 +63,27 @@
                                 <br/>
                                 <br/>
                                 <br/>
-                                <br/><br/><br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
                                 <table width="100%">
                                     <tr>
                                         <td width="20%">&amp;nbsp;</td>
-                                        <td width="50%" align="left" style="padding-left:150px;">
+                                        <td colspan="2" width="80%" align="left" style="padding-left:150px;">
                                             <img t-if="company.logo"
                                                  t-att-src="'data:image/png;base64,%s' % to_text(o.image_1920)"
-                                                 style="max-height:500px;max-width:500px;"/>
+                                                 width="300px" height="350px"/>
                                         </td>
-                                        <td width="30%">&amp;nbsp;</td>
+                                        <!--<td width="%">&amp;nbsp;</td>-->
                                     </tr>
                                 </table>
+                                <br/>
+                                <br/>
                                 <br/>
                                 <br/>
                                 <br/>
@@ -86,7 +96,7 @@
                                     <tr>
                                         <td width="20%">&amp;nbsp;</td>
                                         <td align="left" width="50%"
-                                            style="font-size:45px; font-weight:bold; padding-left:60px;">
+                                            style="font-size:45px; font-weight:bold; padding-left:40px;">
                                             <span t-field="o.name"/>
                                         </td>
                                         <td width="30%">&amp;nbsp;</td>
@@ -131,6 +141,10 @@
                                             <span>ID Number:</span>&amp;nbsp;
                                         </td>
                                     </tr>
+
+                                    <tr>
+                                        <td width="100%" colspan="3">&amp;nbsp;</td>
+                                    </tr>
                                     <tr>
                                         <td width="100%" colspan="3">&amp;nbsp;</td>
                                     </tr>
@@ -139,6 +153,9 @@
                                         <td width="70%" style="font-size:45px; padding-left:40px;" colspan="2">
                                             <span>Blood Group:</span>&amp;nbsp;
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%" colspan="3">&amp;nbsp;</td>
                                     </tr>
                                     <tr>
                                         <td width="100%" colspan="3">&amp;nbsp;</td>
@@ -154,11 +171,14 @@
                                         <td width="100%" colspan="3">&amp;nbsp;</td>
                                     </tr>
                                     <tr>
+                                        <td width="100%" colspan="3">&amp;nbsp;</td>
+                                    </tr>
+                                    <tr>
                                         <td width="20%">&amp;nbsp;</td>
                                         <td width="70%" colspan="2">
                                             <img alt="barcode"
                                                  t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.barcode, 600, 120)"
-                                                 style="max-height:50pt;max-width:100%;"/>
+                                                 style="max-height:50pt;max-width:150%;"/>
                                         </td>
                                     </tr>
                                 </table>
