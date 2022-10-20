@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="OrderReceipt">
+
+
+                <t t-jquery=".pos-receipt .pos-receipt-contact"  t-operation='prepend'>
+           <t t-if='receipt.name.replace("Order", "")'>
+               <h2>
+                    Tax Invoice : <t t-esc='receipt.name.replace("Order", "")' />
+               </h2>
+<!--<div class="pos-receipt-amount" style="margin-left: -26% !important">-->
+<!--                                  <div>-->
+<!--                                      <Strong>-->
+<!--                                          Tax Invoice : <t t-esc='receipt.name.replace("Order", "")' />-->
+<!--                                      </Strong>-->
+<!--                                  </div>-->
+
+<!--            </div>-->
+            </t>
+        </t>
+
+
+
+
+
+
+
+
+<!--        <t t-jquery=".pos-receipt-order-data" t-operation='replace'>-->
+<!--            <t t-if='receipt.name.replace("Order", "")'>-->
+<!--                  <div>Tax Invoice : <t t-esc='receipt.name.replace("Order", "")' /></div>-->
+
+
+<!--            </t>-->
+<!--                <div><t t-esc='receipt.date.localestring' /></div>-->
+<!--        </t>-->
+
+    </t>
+</templates>
