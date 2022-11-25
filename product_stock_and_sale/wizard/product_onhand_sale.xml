@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+  <record model="ir.ui.view" id="product_onhand_sale_form">
+        <field name="name">Product Onhand Sale</field>
+        <field name="model">product.onhand.sale</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+
+                    <group>
+                    <field name="company_id"  ></field>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Download XLSX" class="oe_highlight"  name="action_submit_xlsx" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+        <record model="ir.actions.act_window" id="action_product_sale_onhand">
+        <field name="name">Product Onhand and Sales</field>
+        <field name="res_model">product.onhand.sale</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+        <menuitem id="menu_product_onhand_sale" name="Product Sale and Onhand " parent="stock.menu_warehouse_report"  action="action_product_sale_onhand"/>
+
+
+
+
+
+
+    </data>
+</odoo>
