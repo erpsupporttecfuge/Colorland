@@ -1,0 +1,305 @@
+<odoo>
+
+
+
+
+    <template id="table_of_documents_upload_form">
+
+
+    <t t-if="document_edit">
+
+
+
+        <form class="text-center border border-light p-5" action="/document/update" method="post" id="upload_document_form" enctype="multipart/form-data">
+
+<input name="id" t-att-value="document_edit.id" hidden="1"></input>
+
+         <p class="h4 mb-4">Update Upload</p>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <!-- First name -->
+<select class="form-select"  name="document_type_id" aria-label="Disabled select example"  required="true">
+
+<t t-foreach="document_type" t-as="type">
+<t t-if="document_edit.document_type_id.id == type.id">
+
+          <option t-att-value="type.id" selected="true"><t t-esc="type.name"/>  <t t-if="type.is_mandatory"> * </t></option>
+
+</t>
+    <t t-else="document_edit.document_type_id.id == type.id">
+
+          <option t-att-value="type.id" ><t t-esc="type.name"/>  <t t-if="type.is_mandatory"> * </t></option>
+
+</t>
+
+</t>
+
+</select>        </div>
+    </div>
+
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <!-- First name -->
+<div class="md-form md-outline input-with-post-icon datepicker" id="customDays">
+  <input placeholder="Select date" t-att-value="document_edit.date_of_expire" name="date_of_expire" type="date" id="Customization" class="form-control" required="true"/>
+</div>        </div>
+    </div>
+
+
+
+        <div class="form-row mb-4">
+        <div class="col">
+            <!-- First name -->
+
+    <input type="file"  required="true"  name="attachment_id" class="form-control" id="customFile" />
+
+         <a t-att-href="document_edit.download_uploaded_document()">Download</a>
+
+
+        </div>
+    </div>
+
+
+      <div class="text-center py-4 mt-3">
+        <button class="btn btn-info" type="submit">Submit</button>
+      </div>
+
+    <!-- E-mail -->
+
+    <!-- Password -->
+
+    <!-- Phone number -->
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+    </t>
+    <t t-else="document_edit">
+
+        <!-- Default form register -->
+<form class="text-center border border-light p-5" action="/form/document_upload" method="post" id="upload_document_form" enctype="multipart/form-data">
+
+
+
+         <p class="h4 mb-4">Document Upload</p>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <!-- First name -->
+<select class="form-select"  name="document_type_id" aria-label="Disabled select example"  required="true">
+
+<t t-foreach="document_type" t-as="type">
+      <option t-att-value="type.id"><t t-esc="type.name"/>  <t t-if="type.is_mandatory"> * </t></option>
+
+</t>
+
+</select>        </div>
+    </div>
+
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <!-- First name -->
+<div class="md-form md-outline input-with-post-icon datepicker" id="customDays">
+  <input placeholder="Select date" name="date_of_expire" type="date" id="Customization" class="form-control" required="true"/>
+</div>        </div>
+    </div>
+
+
+
+        <div class="form-row mb-4">
+        <div class="col">
+            <!-- First name -->
+
+    <input type="file"  required="true"  name="attachment_id" class="form-control" id="customFile" />
+    </div>
+    </div>
+
+
+      <div class="text-center py-4 mt-3">
+        <button class="btn btn-info" type="submit">Submit</button>
+      </div>
+
+    <!-- E-mail -->
+
+    <!-- Password -->
+
+    <!-- Phone number -->
+
+</form>
+
+    </t>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Default form register -->
+    </template>
+
+
+
+
+
+
+
+
+
+<!--View of Documents -->
+    <template id="table_of_documents_of_employee">
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Document Type</th>
+      <th scope="col">Attachment</th>
+      <th scope="col">Date of Expiry</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+
+   <t t-foreach="documents" t-as="o">
+       <t t-if="o.status == 'valid'">
+
+
+
+    <tr class="table-light">
+
+            <th scope="row"><t t-esc="o.document_type_id.name"></t></th>
+      <td>        <a t-att-href="o.download_uploaded_document()">Download</a></td>
+      <td><t t-esc="o.date_of_expire"></t></td>
+      <td><t t-esc="o.status"/></td>
+      <td>
+
+
+          <a t-att-href="'/delete/document?id='+str(o.id)">
+                     Delete
+
+
+          </a>
+  <a t-att-href="'/documents?id='+str(o.id)">
+
+
+          <button type="button" class="btn btn-info btn-rounded" data-mdb-ripple-color="dark">Edit</button>
+
+  </a>
+      </td>
+
+
+
+    </tr>
+   </t>
+
+
+
+       <t t-else="o.status === 'valid'">
+
+              <tr class="table-danger">
+
+            <th scope="row"><t t-esc="o.document_type_id.name"></t></th>
+      <td>        <a t-att-href="o.download_uploaded_document()">Download</a></td>
+      <td><t t-esc="o.date_of_expire"></t></td>
+      <td><t t-esc="o.status"/></td>
+      <td>
+
+          <a t-att-href="'/delete/document?id='+str(o.id)">
+                     Delete
+
+
+          </a>
+  <a t-att-href="'/documents?id='+str(o.id)">
+          <button type="button" class="btn btn-light" data-mdb-ripple-color="dark">Edit</button>
+  </a>
+      </td>
+
+
+
+    </tr>
+
+       </t>
+
+
+
+   </t>
+
+
+  </tbody>
+</table>
+
+    </template>
+
+
+
+    <template id="portal_document_tree_view">
+    <t t-call="website.layout">
+
+
+
+
+
+
+
+
+
+        <t t-call="tecfuge_hrms.menu_of_portal_users"></t>
+        <br></br>
+        <br></br>
+        <div style="padding:10px">
+
+                <t t-call="tecfuge_hrms.employee_banner_common"></t>
+</div>
+
+        <br></br>
+        <br></br>
+        <div style="padding:20px">
+
+            <div class="row">
+
+                <div class="col-4">
+
+                    <t t-call="tecfuge_hrms.table_of_documents_upload_form">
+
+                    </t>
+
+                </div>
+                <div class="col">
+
+                      <t t-call="tecfuge_hrms.table_of_documents_of_employee"/>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+            </t>
+
+
+    </template>
+</odoo>

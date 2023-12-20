@@ -1,0 +1,13 @@
+.list-group {
+               top: 50%;
+               left: 50%;
+               width: 50%;
+}
+
+.list-group .col {
+                width: 10%;
+}
+
+.list-group .row {
+                width: 10%;
+}

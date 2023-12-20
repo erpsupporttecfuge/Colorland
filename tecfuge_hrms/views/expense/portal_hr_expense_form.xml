@@ -1,0 +1,74 @@
+<odoo>
+    <template id="portal_hr_expense_form">
+
+
+
+        <!-- Default form register -->
+<form class="text-center border border-light p-5" action="/expense/submit" method="post" enctype="multipart/form-data">
+
+    <p class="h4 mb-4">Expense Request</p>
+
+    <div class="form-row mb-4">
+        <div class="col" style="text-align:left">
+            <!-- First name -->
+            <p><strong>
+                Description
+            </strong></p>
+            <input type="text" name="name" class="form-control" placeholder="Description"/>
+<br></br>
+
+
+                        <p><strong>
+                Expense Date
+            </strong></p>
+            <input type="date" name="date" id="defaultRegisterFormFirstName" class="form-control" placeholder="Description"/>
+<br></br>
+       <p><strong>
+                Category
+            </strong></p>
+
+
+            <select class="form-select"  name="product_id" aria-label="Default select example">
+
+
+  <option>Open this select menu</option>
+<t t-foreach="expense_product_list"  t-as="category">
+      <option t-att-value="category.id"><t t-esc="category.name"></t></option>
+
+</t>
+
+</select>
+
+
+            <br></br>
+       <p><strong>
+                Total
+            </strong></p>
+
+          <input type="number" name="total_amount" class="form-control"/>
+
+
+
+            <br></br>
+       <p><strong>
+                Documents
+            </strong></p>
+
+<input
+  type="file" class="form-control"  name="message_main_attachment_id"/>
+
+
+        </div>
+
+    </div>
+
+      <div class="text-center py-4 mt-3">
+        <button class="btn btn-info" type="submit">Submit</button>
+      </div>
+    <!-- E-mail -->
+
+</form>
+        <br></br>
+<!-- Default form register -->
+    </template>
+</odoo>

@@ -1,0 +1,67 @@
+<odoo>
+    <template id="portal_hr_expense_tree">
+<table class="table" >
+  <thead>
+    <tr>
+      <th scope="col">Expense Date</th>
+      <th scope="col">Category</th>
+      <th scope="col">Description</th>
+      <th scope="col">Total</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+      <t t-foreach="expense_list" t-as="expense">
+<tr>
+
+      <th scope="row">
+          <t t-esc="expense.date"></t>
+      </th>
+      <td>
+          <t t-esc="expense.product_id.name"></t>
+      </td>
+      <td>
+                    <t t-esc="expense.name"></t>
+
+
+      </td>
+     <td>
+                    <t t-esc="expense.total_amount"></t>
+
+
+      </td>
+    <td>
+
+        <t t-if="expense.state == 'approved'">
+<span class="badge rounded-pill bg-warning">Approved</span>
+
+        </t>
+          <t t-if="expense.state == 'draft'">
+<span class="badge rounded-pill bg-light text-dark">To Submit</span>
+
+        </t>
+
+          <t t-if="expense.state == 'done'">
+<span class="badge rounded-pill bg-success ">Done</span>
+
+        </t>
+            <t t-if="expense.state == 'reported'">
+<span class="badge rounded-pill bg-info ">Submit</span>
+
+        </t>
+            <t t-if="expense.state == 'refused'">
+<span class="badge rounded-pill bg-danger ">Submit</span>
+
+        </t>
+<!--                            <t t-esc="expense.state"></t>-->
+
+    </td>
+    </tr>
+
+      </t>
+
+
+  </tbody>
+</table>
+    </template>
+</odoo>

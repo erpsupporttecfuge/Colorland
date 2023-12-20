@@ -1,0 +1,63 @@
+<odoo>
+    <template id="notification_portal_employee">
+        <div class="usrbx bgact">
+            <h2>Activity</h2>
+            <t t-foreach="activities" t-as="o">
+                <ul>
+                    <li class="list-group-item list-group-item-action">
+
+
+                        <li>
+                            <t t-esc="o.summary"></t>
+                        </li>
+                        <p>
+                            <t t-esc="o.activity_type_id.name"></t>
+                        </p>
+                        <p>
+                            <t t-esc="o.date_deadline"></t>
+                        </p>
+                        <p>
+                            <t t-esc="o.note"></t>
+                        </p>
+                    </li>
+                </ul>
+
+
+            </t>
+
+
+        </div>
+    </template>
+
+
+    <template id="document_expiry_notification">
+
+
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-danger">
+                Documents Expiry
+            </li>
+            <t t-foreach="documents" t-as="o">
+                <t t-if="o.status == 'expired'">
+                    <ul class="list-group-item list-group-item-action">
+
+
+                        <li>
+                            <t t-esc="o.document_type_id.name"></t>
+                        </li>
+                        <p>
+                            <t t-esc="o.date_of_expire"></t>
+                        </p>
+                    </ul>
+
+                </t>
+
+            </t>
+
+
+        </ul>
+
+    </template>
+
+
+</odoo>

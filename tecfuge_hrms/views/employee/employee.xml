@@ -1,0 +1,318 @@
+<odoo>
+
+
+
+
+    <template id="portal_employee_private">
+        <br></br>
+        <div class="row">
+            <div class="col-3" >
+                <ul class="list-group" style="padding:10px">
+  <li class="list-group-item list-group-item-dark">
+
+      <h6>WORK INFORMATION</h6>
+
+      </li>
+
+          <li class="list-group-item">
+                <br></br>
+              <div class="row">
+                  <strong>Work Address</strong>
+                  <p><t t-esc="employee.address_id.contact_address"></t></p>
+              </div>
+    <br></br>
+              <div class="row">
+                  <strong>Work Location</strong>
+                  <p><t t-esc="employee.work_location_id.name"></t></p>
+              </div>
+
+
+
+
+
+
+
+          </li>
+
+
+
+
+
+
+</ul>
+
+            </div>
+            <div class="col">
+
+
+                  <ul class="list-group" style="padding:10px">
+  <li class="list-group-item list-group-item-dark">     <h6>PRIVATE CONTACT</h6></li>
+                      <li class="list-group-item">
+                          <br></br>
+<div class="row">
+
+
+                          <div class="col">
+                              <strong>Address </strong>
+                         <p style="width:200px">
+                              <t t-esc="employee.address_home_id.contact_address"></t>
+                         </p>
+
+
+                          </div>
+                          <div class="col">
+                                  <strong> Email </strong> : <t t-esc="employee.private_email"></t>
+                              <br></br>
+                              <br></br>
+                                  <strong> Phone </strong> : <t t-esc="employee.phone"></t>
+                                           <br></br>
+                              <br></br>
+                                  <strong> Bank Account Number </strong> : <t t-esc="employee.bank_account_id.acc_number"></t>
+
+
+                                     <br></br>
+                              <br></br>
+                                  <strong> Language </strong> : <t t-esc="employee.lang"></t>
+
+                                     <br></br>
+                              <br></br>
+                                  <strong> Home-Work Distance</strong> : <t t-esc="employee.km_home_work"></t> KM
+
+                          </div>
+
+
+
+</div>
+
+
+                          <br></br>
+                                </li>
+
+
+                      <li class="list-group-item list-group-item-dark">     <h6>EDUCATION</h6></li>
+                      <li class="list-group-item">
+
+                              <br></br>
+                                  <strong> Certificate Level </strong> : <t t-esc="employee.certificate.upper()"></t>
+                                           <br></br>
+   <br></br>
+                                  <strong>Field of Study </strong> : <t t-esc="employee.study_field"></t>
+                                           <br></br>
+<br></br>
+                                  <strong> School </strong> : <t t-esc="employee.study_school"></t>
+                                           <br></br>
+                                           <br></br>
+
+                                </li>
+
+                           <li class="list-group-item list-group-item-dark">     <h6>WORK PERMIT</h6></li>
+                      <li class="list-group-item">
+
+                          <div class="row">
+                              <div class="col">
+
+                                   <br></br>
+                                  <strong> Visa No</strong> : <t t-esc="employee.visa_no"></t>
+                                           <br></br>
+                                 <br></br>
+                                  <strong> Work Permit No </strong> : <t t-esc="employee.permit_no"></t>
+                                           <br></br>
+                                 <br></br>
+                                  <strong> Visa Expire Date </strong> : <t t-esc="employee.visa_expire"></t>
+                                           <br></br>
+
+
+                              </div>
+                              <div class="col">
+                                   <br></br>
+                                  <strong> Work Permit Expiration Date </strong> : <t t-esc="employee.work_permit_expiration_date"></t>
+                                           <br></br>
+                                 <br></br>
+
+                              </div>
+                          </div>
+                          <br></br>
+
+
+
+
+                                </li>
+                      <li class="list-group-item list-group-item-dark">     <h6>FAMILY STATUS</h6></li>
+                      <li class="list-group-item">
+
+
+
+                             <div class="row">
+                              <div class="col">
+
+                                   <br></br>
+                                  <strong>  Marital Status </strong> : <t t-esc="employee.marital.upper()"></t>
+                                           <br></br>
+                                 <br></br>
+                                  <strong>Spouse Complete Name </strong> : <t t-esc="employee.spouse_complete_name"></t>
+                                           <br></br>
+                                 <br></br>
+
+
+                              </div>
+                              <div class="col">
+                                   <br></br>
+                                  <strong> Spouse Birthdate </strong> : <t t-esc="employee.spouse_birthdate"></t>
+                                           <br></br>
+                                 <br></br>
+     <strong> Number of Dependent Children </strong> : <t t-esc="employee.children"></t>
+                                           <br></br>
+                                 <br></br>
+
+                              </div>
+                          </div>
+                          <br></br>
+
+
+
+
+
+
+
+
+
+
+                                </li>
+
+
+                      <li class="list-group-item list-group-item-dark">     <h6>EMERGENCY</h6></li>
+                      <li class="list-group-item">
+
+                             <br></br>
+                                  <strong> Contact Name</strong> : <t t-esc="employee.emergency_contact"></t>
+                                           <br></br>
+                                 <br></br>
+                                  <strong>Contact Phone </strong> : <t t-esc="employee.emergency_phone"></t>
+                                           <br></br>
+                                 <br></br>
+                                </li>
+
+                                    <li class="list-group-item list-group-item-dark">     <h6>CITIZENSHIP</h6></li>
+                      <li class="list-group-item">
+
+
+
+
+
+                             <div class="row">
+                              <div class="col">
+
+                                   <br></br>
+                                  <strong>  Nationality (Country) </strong> : <t t-esc="employee.country_id.name"></t>
+                                           <br></br>
+                                 <br></br>
+                                  <strong>Identification No </strong> : <t t-esc="employee.identification_id"></t>
+                                           <br></br>
+                                 <br></br>
+  <strong>Passport No</strong> : <t t-esc="employee.passport_id"></t>
+                                           <br></br>
+                                 <br></br>
+
+
+                              </div>
+                              <div class="col">
+                                   <br></br>
+                                  <t t-if="employee.gender">
+                                                                        <strong> Gender </strong> : <t t-esc="employee.gender.upper()"></t>
+
+                                  </t>
+                                           <br></br>
+                                 <br></br>
+     <strong> Date of Birth </strong> : <t t-esc="employee.birthday"></t>
+                                           <br></br>
+                                 <br></br>
+
+
+
+                                   <strong> Place of Birth </strong> : <t t-esc="employee.place_of_birth"></t>
+                                           <br></br>
+                                 <br></br>
+
+
+
+                                   <strong> Country of Birth </strong> : <t t-esc="employee.country_of_birth.name"></t>
+                                           <br></br>
+                                 <br></br>
+
+
+
+                              </div>
+                          </div>
+                          <br></br>
+
+
+
+
+
+
+
+
+
+                                </li>
+
+</ul>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <template id="portal_employee_details" name="Employee">
+
+
+
+            <t t-call="website.layout">
+
+        <t t-call="tecfuge_hrms.menu_of_portal_users"></t>
+
+
+             <br></br>
+        <br></br>
+        <div style="padding:10px">
+
+                <t t-call="tecfuge_hrms.employee_banner_common"></t>
+</div>
+
+
+
+<t t-call="tecfuge_hrms.portal_employee_private"></t>
+
+
+
+
+
+
+
+
+
+
+<br></br>
+            </t>
+
+
+
+    </template>
+</odoo>

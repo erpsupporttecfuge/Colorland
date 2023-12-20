@@ -1,0 +1,77 @@
+<odoo>
+    <template id="portal_main_dashboard_hr">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <t t-call="website.layout">
+
+            <t t-call="tecfuge_hrms.menu_of_portal_users"></t>
+            <br></br>
+            <br></br>
+            <div style="padding:20px">
+
+                <t t-call="tecfuge_hrms.employee_banner_common"></t>
+                <link rel="stylesheet" href="/home/vignesh/odoo16/tec-hrms/tecfuge_hrms/static/css/employee.css"/>
+
+            </div>
+
+            <br></br>
+            <br></br>
+
+
+            <div class="row" style="padding:10px">
+
+                <div class="col">
+
+                    <t t-call="tecfuge_hrms.portal_timeoff_dashboard"></t>
+                    <br></br>
+
+                    <div class="row usract">
+                        <div class="row usrbx">
+                            <div class="portal_dasboards_calender_view">
+                                <div style="width:100%" id="calendar"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <br></br>
+
+
+                    <t t-call="tecfuge_hrms.leave_calender_view_portal"></t>
+
+
+                </div>
+                <div class="col">
+
+
+                    <t t-call="tecfuge_hrms.notification_portal_employee"></t>
+
+                    <t t-call="tecfuge_hrms.document_expiry_notification"></t>
+<br></br>
+
+
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+                    <div class="usrbx draftlog">
+                    <div class="row drafthd">
+                        <h4>Total Expense </h4>
+                    </div>
+                    <div class="row draftslog">
+                        <div class="col">DRAFT</div>
+                        <div class="col"> 123.0 AED </div>
+                    </div>
+                </div>
+
+                </div>
+
+
+            </div>
+
+
+        </t>
+
+
+    </template>
+</odoo>

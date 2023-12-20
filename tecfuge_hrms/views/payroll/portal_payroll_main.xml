@@ -1,0 +1,13 @@
+<odoo>
+    <template id="portal_payroll_board">
+ <t t-call="website.layout">
+
+        <t t-call="tecfuge_hrms.menu_of_portal_users"></t>
+                 <br></br>
+                 <br></br>
+     <div style="padding:20px">
+         <t t-call="tecfuge_hrms.portal_payroll_tree_view"></t>
+     </div>
+ </t>
+    </template>
+</odoo>

@@ -1,0 +1,112 @@
+<odoo>
+    <template id="employee_banner_common">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="/home/vignesh/odoo16/tec-hrms/tecfuge_hrms/static/css/employee.css"/>
+
+
+        <div class="row usract">
+            <div class="row usrbx">
+
+                <div class="col">
+
+
+                    <t t-if="employee.image_1920">
+
+                        <img t-att-src="image_data_uri(employee.image_1920)"
+                             style="width:160px;height:200px; border-radius: 100%"></img>
+
+                    </t>
+                </div>
+
+                <div class="col">
+                    <br></br>
+
+                    <h5 class="card-title">
+                        <t t-esc="employee.name"></t>
+                    </h5>
+
+
+                    <br></br>
+
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <t t-esc="employee.job_title"></t>
+                    </h6>
+
+
+                    <br></br>
+                    <p>
+                        <strong>Work Mobile</strong>
+                        :
+                        <t t-esc="employee.mobile_phone"></t>
+                    </p>
+
+
+                </div>
+
+
+                <div class="col">
+                    <br></br>
+                    <p>
+                        <strong>Work Phone</strong>
+                        :
+                        <t t-esc="employee.work_phone"></t>
+                    </p>
+
+                    <br></br>
+                    <p>
+                        <strong>Work Email</strong>
+                        :
+                        <t t-esc="employee.work_email"></t>
+                    </p>
+
+
+                    <br></br>
+                    <p>
+                        <strong>Company</strong>
+                        :
+                        <t t-esc="employee.company_id.name"></t>
+                    </p>
+
+
+                </div>
+
+
+                <div class="col">
+                    <br></br>
+                    <p>
+                        <strong>Department</strong>
+                        :
+                        <t t-esc="employee.department_id.name"></t>
+                    </p>
+
+                    <br></br>
+                    <p>
+                        <strong>Job Position</strong>
+                        :
+                        <t t-esc="employee.job_id.name"></t>
+                    </p>
+
+
+                    <br></br>
+                    <p>
+                        <strong>Manager</strong>
+                        :
+                        <t t-esc="employee.parent_id.name"></t>
+                    </p>
+
+
+                    <p>
+                        <strong>Coach</strong>
+                        :
+                        <t t-esc="employee.coach_id.name"></t>
+                    </p>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </template>
+</odoo>

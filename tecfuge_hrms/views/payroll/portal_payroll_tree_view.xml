@@ -1,0 +1,44 @@
+<odoo>
+    <template id="portal_payroll_tree_view">
+
+        <table class="table table-hover">
+  <thead>
+
+    <tr>
+      <th scope="col">Reference</th>
+      <th scope="col">From</th>
+      <th scope="col">To</th>
+      <th scope="col">Basic Wage</th>
+      <th scope="col">Net Wage</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+<t t-foreach="payslips" t-as="slip">
+
+
+          <tr>
+      <th scope="row"><t t-esc="slip.number"></t> </th>
+      <td><t t-esc="slip.date_from"></t></td>
+      <td><t t-esc="slip.date_to"></t></td>
+      <td><t t-esc="slip.basic_wage"></t></td>
+      <td><t t-esc="slip.net_wage"></t></td>
+      <td><t t-esc="slip.state"></t></td>
+              <td>
+                   <a t-att-href="'/payroll/form/?id=%s' % slip.id">
+View
+                   </a>
+              </td>
+    </tr>
+
+
+</t>
+
+
+
+  </tbody>
+</table>
+    </template>
+</odoo>

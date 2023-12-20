@@ -1,0 +1,128 @@
+<odoo>
+    <template id="portal_expense_charts">
+<!--        <div class="row">-->
+
+<!--            <div class="col">-->
+<!--                <div class="portal_dasboards_expense_chart">-->
+
+<!--                    <div style="width:700px;height:400px">-->
+<!--                        <canvas id='ctx'>-->
+
+<!--                        </canvas>-->
+
+
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <ul class="list-group">-->
+<!--                <li class="list-group-item list-group-item-dark">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col">-->
+<!--                            <h4>Total Expense</h4>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <t t-foreach="dashboard_status" t-as="status">-->
+
+
+<!--                    <t t-if="status['state'] == 'draft'">-->
+
+<!--                        <li class="list-group-item ">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="status['state'].upper()"></t>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="status['total_amount']"></t>-->
+<!--                                    AED-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </li>-->
+
+<!--                    </t>-->
+
+<!--                    <t t-if="status['state'] == 'approved'">-->
+
+<!--                        <li class="list-group-item list-group-item-warning">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="status['state'].upper()"></t>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="status['total_amount']"></t>-->
+<!--                                    AED-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </li>-->
+
+<!--                    </t>-->
+
+
+<!--                    <t t-if="status['state'] == 'done'">-->
+
+<!--                        <li class="list-group-item list-group-item-success">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="status['state'].upper()"></t>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="status['total_amount']"></t>-->
+<!--                                    AED-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </li>-->
+
+<!--                    </t>-->
+
+
+<!--                    <t t-if="status['state'] == 'reported'">-->
+
+<!--                        <li class="list-group-item list-group-item-info">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="status['state'].upper()"></t>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="status['total_amount']"></t>-->
+<!--                                    AED-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </li>-->
+
+<!--                    </t>-->
+
+
+<!--                    <t t-if="status['state'] == 'refused'">-->
+
+<!--                        <li class="list-group-item list-group-item-danger">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="status['state'].upper()"></t>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <t t-esc="status['total_amount']"></t>-->
+<!--                                    AED-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </li>-->
+
+<!--                    </t>-->
+
+
+<!--                </t>-->
+
+
+<!--            </ul>-->
+
+<!--        </div>-->
+
+
+    </template>
+</odoo>

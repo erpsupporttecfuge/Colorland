@@ -1,0 +1,124 @@
+<odoo>
+    <template id="portal_payroll_form_view">
+
+
+<t t-call="website.layout">
+        <br></br>
+        <t t-call="tecfuge_hrms.menu_of_portal_users"></t>
+                 <br></br>
+                 <br></br>
+     <div style="padding:20px">
+
+<div class="card text-center">
+  <div class="card-header"  style="text-align:left">
+      <a t-att-href="'/payroll/download?id=%s' % payslips.id">
+
+    <button type="button" class="btn btn-primary btn-md o_website_form_send">Print</button>
+</a>
+<br></br>
+<br></br>
+      <h3 class="card-title"><t t-esc="payslips.number"></t></h3>
+
+
+
+
+
+
+<h6><t t-esc="payslips.employee_id.name"/></h6>
+
+      <br></br>
+    <div class="row">
+        <div class="col"><strong> From :</strong> <t t-esc="payslips.date_from"></t> </div>
+        <div class="col"><strong>To :</strong> <t t-esc="payslips.date_to"></t> </div>
+    </div>
+      <br></br>
+   <div class="row">
+        <div class="col"><strong> Batch :</strong> <t t-esc="payslips.payslip_run_id.name"></t> </div>
+    </div>
+
+
+
+
+
+
+     <div class="row">
+        <div class="col"><strong> Structure :</strong> <t t-esc="payslips.struct_id.name"></t> </div>
+    </div>
+
+
+<br></br>
+<br></br>
+<br></br>
+
+ <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Rate(%)</th>
+      <th scope="col">Amount(%)</th>
+      <th scope="col">Total(%)</th>
+    </tr>
+  </thead>
+  <tbody>
+      <t t-foreach="payslips.line_ids" t-as="line">
+           <tr>
+      <th scope="row"><t t-esc="line.name"></t> </th>
+      <td><t t-esc="line.category_id.name"></t></td>
+      <td><t t-esc="line.quantity"></t></td>
+      <td><t t-esc="line.rate"></t></td>
+      <td><t t-esc="line.salary_rule_id.name"></t></td>
+      <td><t t-esc="line.amount"></t></td>
+      <td><t t-esc="line.total"></t></td>
+    </tr>
+
+
+      </t>
+   <tr>
+      <th scope="row"> </th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+          <strong> Basic Wage </strong>
+      </td>
+      <td><t t-esc="payslips.basic_wage"></t></td>
+    </tr>
+ <tr>
+      <th scope="row"> </th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+
+          <strong>
+             Net Wage
+          </strong>
+          </td>
+      <td><t t-esc="payslips.net_wage"></t></td>
+    </tr>
+  </tbody>
+</table>
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+     </div>
+ </t>
+    </template>
+</odoo>

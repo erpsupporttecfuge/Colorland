@@ -1,0 +1,29 @@
+<odoo>
+    <template id="portal_helpdesk_tickets">
+ <t t-call="website.layout">
+
+        <t t-call="tecfuge_hrms.menu_of_portal_users"></t>
+                 <br></br>
+                 <br></br>
+                 <div style="padding:20px">
+
+                                     <t t-call="tecfuge_hrms.employee_banner_common"></t>
+
+                 </div>
+
+                 <br></br>
+                 <br></br>
+
+
+     <div class="row">
+         <div class="col-3"><t t-call="tecfuge_hrms.portal_helpdesk_ticket_form"></t> </div>
+         <div class="col">
+             <t t-call="tecfuge_hrms.portal_helpdesk_ticket_tree"></t>
+
+         </div>
+     </div>
+
+ </t>
+
+    </template>
+</odoo>

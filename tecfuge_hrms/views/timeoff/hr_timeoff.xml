@@ -1,0 +1,215 @@
+<odoo>
+
+
+    <template id="portal_time_off_tree">
+
+        <div style="padding : 10px">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Time Off Type</th>
+      <th scope="col">Description</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <t t-foreach="time_off"  t-as="off">
+
+
+
+
+              <t t-if="off.state  == 'draft'">
+                            <tr>
+                   <th scope="row"><t t-esc="off.holiday_status_id.name"/></th>
+      <td><t t-esc="off.name"/></td>
+      <td><t t-esc="off.date_from"/></td>
+      <td><t t-esc="off.date_to"/></td>
+      <td><t t-esc="off.duration_display"/></td>
+      <td>To Submit</td>
+    </tr>
+
+              </t>
+
+          <t t-if="off.state  == 'confirm'">
+                            <tr class="table-warning">
+                   <th scope="row"><t t-esc="off.holiday_status_id.name"/></th>
+      <td><t t-esc="off.name"/></td>
+      <td><t t-esc="off.date_from"/></td>
+      <td><t t-esc="off.date_to"/></td>
+      <td><t t-esc="off.duration_display"/></td>
+      <td>To Approve</td>
+    </tr>
+
+              </t>
+
+
+             <t t-if="off.state  == 'refuse'">
+                            <tr class="table-danger">
+                   <th scope="row"><t t-esc="off.holiday_status_id.name"/></th>
+      <td><t t-esc="off.name"/></td>
+      <td><t t-esc="off.date_from"/></td>
+      <td><t t-esc="off.date_to"/></td>
+      <td><t t-esc="off.duration_display"/></td>
+      <td>Refused</td>
+    </tr>
+
+              </t>
+
+                       <t t-if="off.state  == 'validate1'">
+                            <tr class="table-primary">
+                   <th scope="row"><t t-esc="off.holiday_status_id.name"/></th>
+      <td><t t-esc="off.name"/></td>
+      <td><t t-esc="off.date_from"/></td>
+      <td><t t-esc="off.date_to"/></td>
+      <td><t t-esc="off.duration_display"/></td>
+      <td>Second Approve</td>
+    </tr>
+
+              </t>
+
+
+          <t t-if="off.state  == 'validate'">
+                            <tr class="table-success">
+                   <th scope="row"><t t-esc="off.holiday_status_id.name"/></th>
+      <td><t t-esc="off.name"/></td>
+      <td><t t-esc="off.date_from"/></td>
+      <td><t t-esc="off.date_to"/></td>
+      <td><t t-esc="off.duration_display"/></td>
+      <td>Approve</td>
+    </tr>
+
+              </t>
+
+      </t>
+
+
+  </tbody>
+</table>
+        </div>
+    </template>
+
+
+    <template id="portal_time_off_form">
+
+
+        <!-- Default form subscription -->
+<form class="text-center border border-light p-5"     action="/timeoff/submit" method="post" id="upload_document_form" enctype="multipart/form-data">">
+
+    <p class="h4 mb-4">Leave Request</p>
+    <div style="text-align:left">
+        <br></br>
+        <strong>Time off Type</strong>
+        <br></br>
+<select class="form-select" name="holiday_status_id" aria-label="Default select example">
+  <option>Open this select menu</option>
+    <t t-foreach="time_off_type" t-as="type">
+          <option t-att-value="type.id"><t t-esc="type.name"></t> </option>
+
+    </t>
+</select>
+
+    </div>
+<br></br>
+<br></br>
+    <div class="row">
+        <div class="col">
+             <div style="text-align:left">
+        <strong>Date from </strong>
+                  <input type="date"  name="date_from"  class="form-control" />
+
+    </div>
+
+
+        </div>
+        <div class="col">
+             <div style="text-align:left">
+        <strong>Date to </strong>
+                  <input type="date"  name="date_to" class="form-control" />
+
+    </div>
+
+
+        </div>
+    </div>
+<br></br>
+
+      <div style="text-align:left">
+        <strong>Description </strong>
+                 <textarea  name="name" class="form-control" />
+
+    </div>
+
+<br></br>
+
+      <div style="text-align:left">
+        <strong>Upload </strong>
+    <input type="file"  required="true"   name="attachment_id" class="form-control" id="customFile" />
+
+    </div>
+
+
+    <br></br>
+    <br></br>
+
+    <button class="btn btn-info btn-block" type="submit">Submit</button>
+
+<br></br>
+</form>
+        <br></br>
+<!-- Default form subscription -->
+
+
+
+
+
+
+
+<br></br>
+
+
+
+    </template>
+
+
+    <template id="portal_hr_leave_main">
+
+             <t t-call="website.layout">
+
+        <t t-call="tecfuge_hrms.menu_of_portal_users"></t>
+                 <br></br>
+                 <br></br>
+                 <div style="padding:20px">
+
+                                     <t t-call="tecfuge_hrms.employee_banner_common"></t>
+
+                 </div>
+
+                 <br></br>
+                 <br></br>
+
+                 <t t-call="tecfuge_hrms.portal_timeoff_dashboard"/>
+
+                 <div class="row">
+                     <div class="col-4">
+
+                         <t t-call="tecfuge_hrms.portal_time_off_form"></t>
+
+                     </div>
+                     <div class="col">
+
+                         <t t-call="tecfuge_hrms.portal_time_off_tree"></t>
+                     </div>
+                 </div>
+
+
+
+
+             </t>
+
+    </template>
+
+</odoo>

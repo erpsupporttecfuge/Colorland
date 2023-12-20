@@ -1,0 +1,31 @@
+.card {
+    width: 50%;
+    flex: 100%
+}
+
+.card-header .container .row .row{
+    width: 25%;
+}
+
+.cdr{
+    padding: 20px 0;
+    background: #35979C;
+}
+
+
+
+.cdr a{
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+
+.cdr a:hover{
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none!important;
+    background: #257175;
+    border-radius: 20px;
+    box-shadow: 0 0 12px #195d60;
+}

@@ -1,0 +1,159 @@
+<odoo>
+
+ <template id="menu_of_portal_users" name="menu">
+<style>
+    .custom_dashboard_row {
+        justify-content: center;
+        padding: 10px;
+        display: flex;
+    }
+    a{
+        text-decoration: none;
+    }
+
+    .custom_dashboard_cards {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        padding: 10px;
+        width: 160px;
+        height: auto;
+    }
+
+    .custom_dashboard_cards:hover {
+        animation: slup ease-in-out 300ms forwards;
+        text-decoration: none!important;
+    }
+
+    @keyframes slup{
+        0%{
+            transform: translateY(0);
+        }
+        100%{
+            transform: translateY(-10px);
+        }
+    }
+
+    .custom_image_dash img {
+        width: auto;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .custom_text_dash {
+        text-align: center;
+    }
+
+    .cdr{
+    display: flex;
+    justify-content: center;
+    }
+</style>
+
+     <div class="cdr">
+<div class="custom_dashboard_row">
+    <a style="outline-style: none" href="/dashboard">
+        <div class="custom_dashboard_cards">
+            <div class="custom_image_dash">
+                <img src="/tecfuge_hrms/static/img/dashboard.png" />
+            </div>
+            <div class="custom_text_dash">
+                Dashboard
+            </div>
+        </div>
+    </a>
+</div>
+
+
+<div class="custom_dashboard_row">
+    <a style="outline-style: none" href="/employee">
+        <div class="custom_dashboard_cards">
+            <div class="custom_image_dash">
+                <img src="https://www.hrpartner.io/img/features-menu/icon-employee-records.png" />
+            </div>
+            <div class="custom_text_dash">
+                Profile
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+
+<div class="custom_dashboard_row">
+    <a style="outline-style: none" href="/timeoff">
+        <div class="custom_dashboard_cards">
+            <div class="custom_image_dash">
+                <img src="https://www.hrpartner.io/img/features-menu/icon-leave-management.png" class="custom_image_dash"/>
+            </div>
+            <div class="custom_text_dash">
+                Leave
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+
+<div class="custom_dashboard_row">
+    <a style="outline-style: none" href="/expense">
+        <div class="custom_dashboard_cards">
+            <div class="custom_image_dash">
+                <img src="https://www.hrpartner.io/img/features-menu/icon-expense-claims.png" />
+            </div>
+            <div class="custom_text_dash">
+                Expense
+            </div>
+        </div>
+    </a>
+</div>
+
+
+<div class="custom_dashboard_row">
+    <a style="outline-style: none" href="/documents">
+        <div class="custom_dashboard_cards">
+            <div class="custom_image_dash">
+                <img src="https://www.hrpartner.io/img/features-menu/icon-electronic-signatures.png" />
+            </div>
+            <div class="custom_text_dash">
+                Documents
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="custom_dashboard_row">
+    <a style="outline-style: none" href="/payroll">
+        <div class="custom_dashboard_cards">
+            <div class="custom_image_dash">
+                <img src="https://www.hrpartner.io/img/features-menu/icon-integrations.png" />
+            </div>
+            <div class="custom_text_dash">
+                Payroll
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="custom_dashboard_row">
+    <a style="outline-style: none" href="/letter_request">
+        <div class="custom_dashboard_cards">
+            <div class="custom_image_dash">
+                <img src="tecfuge_hrms/static/img/customer-service.png" />
+            </div>
+            <div class="custom_text_dash">
+                Letter Requests
+            </div>
+        </div>
+    </a>
+</div>
+</div>
+ </template>
+</odoo>

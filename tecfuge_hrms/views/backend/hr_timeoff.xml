@@ -1,0 +1,26 @@
+<odoo>
+   <record id="hr_leave_view_form_inherit" model="ir.ui.view">
+        <field name="name">hr.leave.view.form.inherit</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form_manager"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="attachment_id"   widget="many2many_binary"/>
+            </xpath>
+
+        </field>
+   </record>
+
+        <record id="hr_expense_form_view_inherit_sale_expense" model="ir.ui.view">
+        <field name="name">hr.expense.form.inherit.sale.expense</field>
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='description']" position="before">
+                    <field name="attachment_ids"  widget="many2many_binary"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

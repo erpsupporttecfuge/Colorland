@@ -1,0 +1,36 @@
+<odoo>
+
+    <template id="portal_hr_expense_main">
+ <t t-call="website.layout">
+
+        <t t-call="tecfuge_hrms.menu_of_portal_users"></t>
+                 <br></br>
+                 <br></br>
+                 <div style="padding:20px">
+
+                                     <t t-call="tecfuge_hrms.employee_banner_common"></t>
+
+                 </div>
+
+                 <br></br>
+                 <br></br>
+ <t t-call="tecfuge_hrms.portal_expense_charts"></t>
+
+
+
+     <div class="row">
+         <div class="col-4">
+
+             <t t-call="tecfuge_hrms.portal_hr_expense_form"></t>
+
+         </div>
+         <div class="col">
+             <t t-call="tecfuge_hrms.portal_hr_expense_tree"></t>
+         </div>
+     </div>
+ </t>
+
+
+
+    </template>
+</odoo>

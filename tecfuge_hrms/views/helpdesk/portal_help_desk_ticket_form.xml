@@ -1,0 +1,116 @@
+<odoo>
+    <template id="portal_helpdesk_ticket_form">
+
+
+        <form class="text-center border border-light p-5" style="text-align:left" method="post" action="/letter_request/submit">
+
+
+    <p class="h4 mb-4">Letter Request</p>
+
+    <!-- Name -->
+            <div  style="  text-align: left;">
+
+
+                 <input type="text" name="name" class="form-control mb-4" placeholder="Name"/>
+
+    <!-- Email -->
+
+    <!-- Subject -->
+
+            <p><strong>Teams</strong></p>
+   <select class="form-select" name="team_id" aria-label="Default select example">
+       <t t-foreach="teams" t-as="team">
+             <option t-att-value="team.id">
+                 <t t-esc="team.name"></t>
+             </option>
+
+       </t>
+   </select>
+                <br></br>
+            <p><strong>Type </strong></p>
+   <select class="form-select" name="type_id" aria-label="Default select example">
+       <t t-foreach="ticket_type" t-as="type">
+             <option t-att-value="type.id">
+                 <t t-esc="type.name"></t>
+             </option>
+
+       </t>
+
+
+
+
+
+
+
+</select>
+
+    <!-- Message -->
+    <div class="form-group">
+        <br></br>
+        <p><strong>Description</strong></p>
+        <textarea class="form-control rounded-0" name="description" rows="3" placeholder="Message"></textarea>
+    </div>
+
+    <!-- Copy -->
+                <br></br>
+
+    <!-- Send button -->
+    <button class="btn btn-info btn-block" type="submit">Send</button>
+
+
+            </div>
+
+</form>
+
+
+
+
+
+
+
+    </template>
+
+
+        <template id="portal_helpdesk_ticket_tree">
+<!-- Default form contact -->
+
+<!-- Default form contact -->
+
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Ticket Ref</th>
+      <th scope="col">Name</th>
+      <th scope="col">Team</th>
+      <th scope="col">Description</th>
+      <th scope="col">Type</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <t t-foreach="tickets" t-as="ticket">
+            <tr>
+      <th scope="row"><t t-esc="ticket.ticket_ref"></t></th>
+      <th scope="row"><t t-esc="ticket.name"></t></th>
+      <td>
+          <t t-esc="ticket.team_id.name"></t> </td>
+                                <td>  <t t-esc="ticket.description"></t>
+
+      </td>
+      <td>  <t t-esc="ticket.ticket_type_id.name"></t>
+</td>
+
+                <td>
+                    <t t-esc="ticket.stage_id.name"></t>
+                </td>
+    </tr>
+
+      </t>
+
+
+
+  </tbody>
+</table>
+    </template>
+</odoo>
